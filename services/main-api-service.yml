@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: main-api
+  labels:
+    name: main-api-service
+    app: eshop-app
+spec:
+  ports:
+    - port: 5555
+      targetPort: 5555
+  selector:
+    name: main-api-app-pod
+    app: eshop-app
