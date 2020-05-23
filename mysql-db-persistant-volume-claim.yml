@@ -1,10 +1,10 @@
-apiVersio: v1
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mysql-db-claim
 spec:
   accessModes:
-    ReadWriteOnce # which means only one pod can access this
+   - ReadWriteOnce # which means only one pod can access this
   resources:
     requests:
       storage: 1Gi
