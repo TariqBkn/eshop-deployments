@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main-api-deployment
+  labels:
+    app: eshop-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: main-api-pod
+      app: eshop-app
+  template: # from pod definition
+    metadata:
+      name: main-api-pod
+      labels:
+        name: main-api-pod
+        app: eshop-app
+    spec:
+      containers:
+        - name: main-api
+          image: bkntrq/main-api:1.1
+          ports:
+            - containerPort: 5555

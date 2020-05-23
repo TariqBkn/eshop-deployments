@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: similarity-calculator-deployment
+  labels:
+    app: eshop-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: similarity-calculator-pod
+      app: eshop-app
+  template: # from pod definition
+    metadata:
+      name: similarity-calculator-pod
+      labels:
+        name: similarity-calculator-pod
+        app: eshop-app
+    spec:
+      containers:
+        - name: similarity-calculator
+          image: bkntrq/similarity-calculator:1.0
+          ports:
+            - containerPort: 8080

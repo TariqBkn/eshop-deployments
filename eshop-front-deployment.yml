@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eshop-front-deployment
+  labels:
+    app: eshop-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: eshop-front-pod
+      app: eshop-app
+  template: # from pod definition
+    metadata:
+      name: eshop-front-pod
+      labels:
+        name: eshop-front-pod
+        app: eshop-app
+    spec:
+      containers:
+        - name: eshop-front
+          image: bkntrq/eshop-front:1.1
+          ports:
+            - containerPort: 3000
