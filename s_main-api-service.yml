@@ -10,5 +10,5 @@ spec:
     - port: 5555
       targetPort: 5555
   selector:
-    name: main-api-app-pod
+    #name: main-api-app-pod
     app: eshop-app
