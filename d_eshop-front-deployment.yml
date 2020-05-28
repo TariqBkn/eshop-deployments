@@ -23,3 +23,10 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
+          volumeMounts:
+            - mountPath: /temp
+              name: eshop-front-images-storage
+      volumes:
+        - name: eshop-front-images-storage
+          persistentVolumeClaim:
+            claimName: eshop-front-images-claim
