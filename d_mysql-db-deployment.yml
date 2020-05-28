@@ -24,6 +24,8 @@ spec:
             - containerPort: 3306
           args: ["--default-authentication-plugin=mysql_native_password"]
           env:
+            - name: MYSQL_USER
+              value: root
             - name: MYSQL_ROOT_PASSWORD
               value: root
           volumeMounts:
